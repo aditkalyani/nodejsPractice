@@ -1,13 +1,18 @@
 var rect = require("./rectangle")
 
-function solveRect(length, breadth){
-    console.log("The length is "+length+ " and breath is "+breadth)
+function solveRect(l, b){
+    console.log("The length is "+l+ " and breath is "+b);
 
-    if(length<=0 || breadth<=0){
-        console.log("Length or breadth has to be greater than zero")
-    }else{
-        console.log("Perimeter is "+rect.perimeter(length, breadth)+" Area is "+rect.area(length, breadth))
-    }
+    rect(l, b, (err, rectangle) => {
+        if(err){
+            console.log("ERROR: "+ err.message)
+        }else{
+            console.log("Area is "+rectangle.area())
+            console.log("Perimeter is "+rectangle.perimeter())
+        }
+    });
+
+    console.log("**********AFTER SOLVERECT FUNTION***********")
 }
 
 solveRect(4,5)
